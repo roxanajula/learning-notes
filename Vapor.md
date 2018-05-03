@@ -156,6 +156,9 @@ usersRoute.get(User.parameter, use: getBlogPostsHandler)
 
 
 ## Sibling Relationships (Many-to-Many) Example
+Category (**Sibling**) - can have many blog posts
+Blog Post (**Sibling**) - can have many categories
+
 To represent many-to-many relationships in Vapor we need to use **Pivots**.
 
 1. Create a new model **BlogPostCategoryPivot**
