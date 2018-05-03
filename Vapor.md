@@ -1,6 +1,12 @@
 # Vapor Learning Notes
+1. [Getting started](#getting-started)
+2. [Model example](#model-example)
+3. [Controller example](#controller-example)
+4. [Parent-children relationship](#parent-children)
+5. [Sibling relationship](#siblings)
+6. [Useful links](#links)
 
-## Getting started
+## <a id="getting-started"></a> Getting started
 
 Check if ready for Vapor `eval "$(curl -sL check.vapor.sh)"`
 
@@ -27,7 +33,7 @@ To create a new file `touch Sources/App/Models/<File Name>.swift`
 
 -> Regenerate xcode project `vapor xcode -y`
 
-## Model Example  
+## <a id="model-example"></a>Model Example  
 
 ```swift
 import Foundation
@@ -55,7 +61,7 @@ Add it to migrations in **configure.swift**
 migrations.add(model: User.self, database: .sqlite)
 ```
 
-## Controller Example
+## <a id="controller-example"></a>Controller Example
 
   
 ```swift
@@ -92,7 +98,7 @@ let usersController = UsersController()
 try router.register(collection: usersController)
 ```
 
-## Parent - Children (One-to-many) Relationships Example
+## <a id="parent-children"></a>Parent - Children (One-to-many) Relationships Example
 
 User (**Parent**) - creator of blog post, can write multiple blog posts
 
@@ -155,7 +161,7 @@ usersRoute.get(User.parameter, use: getBlogPostsHandler)
 ```
 
 
-## Sibling Relationships (Many-to-Many) Example
+## <a id="siblings"></a>Sibling Relationships (Many-to-Many) Example
 Category (**Sibling**) - can have many blog posts
 Blog Post (**Sibling**) - can have many categories
 
@@ -248,7 +254,7 @@ And register it in the boot
 blogPostsRoute.post(BlogPost.parameter, "categories", Category.parameter, use: addCategoriesHandler)
 ```
 
-## Useful links
+## <a id="links"></a>Useful links
 * [Vapor documentation](https://docs.vapor.codes/3.0/)
 * [Vapor Slack](https://vapor.team/)
 * [RayWenderlich Server Side Swift with Vapor Course](https://videos.raywenderlich.com/courses/115-server-side-swift-with-vapor)
